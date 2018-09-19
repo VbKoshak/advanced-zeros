@@ -1,7 +1,7 @@
 module.exports = function getZerosCount(number, base) {
   // your implementation
  var min = number;
- var st;
+ var st, base1 = base;
  var count;
  var number1;
  for (var i = 2; i <= base; i++)
