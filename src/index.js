@@ -4,6 +4,7 @@ module.exports = function getZerosCount(number, base) {
  var st, base1 = base;
  var count;
  var number1;
+ var mc;
  for (var i = 2; i <= base; i++)
  {
      if (base%i == 0)
@@ -16,20 +17,22 @@ module.exports = function getZerosCount(number, base) {
          }
          count = 0;
          number1 = number;
-         for (var nus = i; nus <= number; nus+=i)
+         for (var nus = i; nus <= number; nus= nus + i)
          {
              var tnus = nus;
              while(tnus%i==0)
              {
-                 count = count +1;
+                 count = count + 1;
                  tnus/=i;
              }
+
          }
+
          if (min > count/st)
          {
             min = count/st;
         };
      }
  }
- return Math.trunc(min);
+ return Math.floor(min);
 }
