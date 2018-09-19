@@ -1,10 +1,9 @@
 module.exports = function getZerosCount(number, base) {
   // your implementation
  var min = number;
- var st, base1 = base;
+ var st;
  var count;
  var number1;
- var mc;
  for (var i = 2; i <= base; i++)
  {
      if (base%i == 0)
@@ -17,15 +16,10 @@ module.exports = function getZerosCount(number, base) {
          }
          count = 0;
          number1 = number;
-         for (var nus = i; nus <= number; nus= nus + i)
-         {
-             var tnus = nus;
-             while(tnus%i==0)
-             {
-                 count = count + 1;
-                 tnus/=i;
-             }
-
+         var nus = i;
+         while (number1 / i > 0) {
+             count += Math.trunc(number1 / i);
+             number1 /= i;
          }
 
          if (min > count/st)
